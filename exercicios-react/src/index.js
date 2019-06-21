@@ -7,7 +7,7 @@ const elemento = document.getElementById('root')
 
 ReactDOM.render(
   <div>
-    <PrimeiroComponente></PrimeiroComponente>
+    <PrimeiroComponente valor="Bom dia!" valor2={2**4}/>
   </div>
 , elemento)
 
