@@ -15,15 +15,15 @@ ReactDOM.render(
   <div>
 
     <Familia sobrenome="Gnich">
-      <Membro nome="Ezequiel" sobrenome="Gnich" />
-      <Membro nome="Olivie" sobrenome="Gnich" />
+      <Membro nome="Ezequiel" />
+      {/*<Membro nome="Olivie" sobrenome="Gnich" />*/}
     </Familia>
-    <Familia sobrenome="Albert">
+    {/*<Familia sobrenome="Albert">
       <Membro nome="Gabriela" sobrenome="Albert" />
       <Membro nome="Cristiano" sobrenome="Albert" />
-    </Familia>
+    </Familia>*/}
 
-    <FamiliaG sobrenome="Gnich"/>
+    {/*<FamiliaG sobrenome="Gnich"/>*/}
 
     {/*<MultiElementos />*/}
     
