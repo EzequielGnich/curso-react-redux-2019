@@ -4,8 +4,8 @@ import Membro from './Membro'
 
 export default props =>
   <div>
-    <Membro nome="Ezequiel" sobrenome="Gnich"/>
-    <Membro nome="João" sobrenome="Silva"/>
-    <Membro nome="Carlos" sobrenome="Silva"/>
-    <Membro nome="Larissa" sobrenome="Silva"/>
+    <Membro nome="Ezequiel" sobrenome={props.sobrenome}/>
+    <Membro nome="João" sobrenome={props.sobrenome}/>
+    <Membro nome="Carlos" sobrenome={props.sobrenome}/>
+    <Membro nome="Larissa" sobrenome={props.sobrenome}/>
   </div>
