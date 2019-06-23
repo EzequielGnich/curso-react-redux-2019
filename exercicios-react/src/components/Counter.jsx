@@ -2,21 +2,32 @@ import React, { Component } from 'react'
 
 export default class Counter extends Component {
 
+  state = {
+    numero: 0
+  }
+
   sumOne = () => {
-    this.props.numero++
-    console.log(this)
+    // this.state.numero++
+    
+    this.setState({ numero: this.state.numero + 1 })
   }
   minusOne = () => {
-    this.props.numero--
-    console.log(this)
+    this.setState({ numero: this.state.numero - 1 })
+  }
+  changeNumber = difference => {
+    this.setState({ numero: this.state.numero + difference })
   }
 
   render() {
     return (
       <div>
-        <div>Número: {this.props.numero}</div>
+        <div>Número: {this.state.numero}</div>
+
         <button onClick={() => this.sumOne()}>Inc</button>
         <button onClick={() => this.minusOne()}>Dec</button>
+        <br />
+        <button onClick={() => this.changeNumber(10)}>Inc 10</button>
+        <button onClick={() => this.changeNumber(-10)}>Dec 10</button>
       </div>
     )
   }
