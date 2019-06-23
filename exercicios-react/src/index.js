@@ -10,7 +10,9 @@ import ReactDOM from 'react-dom'
 // import ComponentWithFunction from './components/ComponentWithFunction'
 // import Father from './components/Father'
 // import ClassComponent from './components/ClassComponent'
-import Counter from './components/Counter'
+// import Counter from './components/Counter'
+
+import Hook from './components/Hook'
 
 
 const elemento = document.getElementById('root')
@@ -18,7 +20,9 @@ const elemento = document.getElementById('root')
 ReactDOM.render(
   <div>
 
-    <Counter />
+  <Hook />
+
+    {/*<Counter />*/}
 
     {/*<ClassComponent valor='Olá Mundo'/>*/}
 
