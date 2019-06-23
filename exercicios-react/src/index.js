@@ -7,18 +7,20 @@ import ReactDOM from 'react-dom'
 // import FamiliaG from './components/FamiliaG'
 // import Familia from './components/Familia'
 // import Membro from './components/Membro'
-
-import ComponentWithFunction from './components/ComponentWithFunction'
+// import ComponentWithFunction from './components/ComponentWithFunction'
+// import Father from './components/Father'
+import ClassComponent from './components/ClassComponent'
 
 const elemento = document.getElementById('root')
 
 ReactDOM.render(
   <div>
 
-    <ComponentWithFunction />
+    <ClassComponent valor='Olá Mundo'/>
 
+    {/*<Father />*/}
 
-
+    {/*<ComponentWithFunction />*/}
 
     {/*<Familia sobrenome="Gnich">
       <Membro nome="Ezequiel" />
