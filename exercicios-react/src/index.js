@@ -9,14 +9,18 @@ import ReactDOM from 'react-dom'
 // import Membro from './components/Membro'
 // import ComponentWithFunction from './components/ComponentWithFunction'
 // import Father from './components/Father'
-import ClassComponent from './components/ClassComponent'
+// import ClassComponent from './components/ClassComponent'
+import Counter from './components/Counter'
+
 
 const elemento = document.getElementById('root')
 
 ReactDOM.render(
   <div>
 
-    <ClassComponent valor='Olá Mundo'/>
+    <Counter />
+
+    {/*<ClassComponent valor='Olá Mundo'/>*/}
 
     {/*<Father />*/}
 
