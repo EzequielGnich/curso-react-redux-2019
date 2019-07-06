@@ -2,7 +2,7 @@
   "name": "todo-app",
   "version": "1.0.0",
   "description": "",
-  "main": "src/config/server.js",
+  "main": "src/loader.js",
   "scripts": {
     "dev": "nodemon",
     "prod": "pm2 start src/loader.js --name todo-app"
