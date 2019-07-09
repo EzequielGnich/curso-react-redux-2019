@@ -12,7 +12,7 @@ module.exports = {
     contentBase: './public'
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
     alias: {
       modules: path.resolve(__dirname, './node_modules/')
     }
@@ -23,8 +23,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js[x]?$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]',
+        test: /\.js[x]?$/,
+        include: /src/,
+        loader: ['./node_modules/babel-loader'],
         exclude: /node_modules/
       }, {
         test: /\.(svg|woff|woff2|ttf|eot|otf)([?]?.*)$/,
