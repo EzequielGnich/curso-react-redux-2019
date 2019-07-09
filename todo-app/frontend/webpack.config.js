@@ -1,15 +1,17 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: `${__dirname} +  `,
     filename: 'app.js'
   },
   devServer: {
-    port: 8080,
-    contentBase: './public'
+    inline: true,
+    contentBase: './public',
+    port: 8080
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -21,16 +23,16 @@ module.exports = {
     new ExtractTextPlugin('app.css')
   ],
   module: {
-    rules: [
-      {
-        test: /\.js[x]?$/,
-        include: /src/,
-        loader: ['./node_modules/babel-loader'],
-        exclude: /node_modules/
-      }, {
-        test: /\.(svg|woff|woff2|ttf|eot|otf)([?]?.*)$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]'
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader'
       }
+    }, {
+      test: /\.(svg|woff|woff2|ttf|eot|otf)([?]?.*)$/,
+      loader: 'file-loader?name=assets/fonts/[name].[ext]'
+    }
     ]
   }
 }
