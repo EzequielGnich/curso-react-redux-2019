@@ -6,6 +6,6 @@ import Todo from '../todo/todo'
 
 export default props => (
   <div className='container'>
-    <h1>Tetse</h1>
+    <Todo />
   </div>
 )

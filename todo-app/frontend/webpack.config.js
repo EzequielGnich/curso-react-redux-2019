@@ -1,11 +1,10 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: `${__dirname} +  `,
+    path: path.resolve(__dirname, 'public'),
     filename: 'app.js'
   },
   devServer: {
@@ -16,7 +15,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      modules: path.resolve(__dirname, './node_modules/')
+      modules: path.resolve(__dirname, 'node_modules/')
     }
   },
   plugins: [
@@ -24,13 +23,18 @@ module.exports = {
   ],
   module: {
     rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader'
-      }
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: [
+        { loader: 'style-loader' },
+        {
+          query: {
+            presets: ['es2015', 'stage-0']
+          }
+        }
+      ]
     }, {
-      test: /\.(svg|woff|woff2|ttf|eot|otf)([?]?.*)$/,
+      test: /.(svg|woff|woff2|ttf|eot|otf)([?]?.*)$/,
       loader: 'file-loader?name=assets/fonts/[name].[ext]'
     }
     ]
