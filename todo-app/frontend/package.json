@@ -1,8 +1,9 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Todo App - Controle de tarefas diarias",
   "main": "index.jsx",
+  "repository": "https://github.com/EzequielGnich/curso-react-redux-2019",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p"
