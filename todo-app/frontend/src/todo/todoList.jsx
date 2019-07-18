@@ -29,16 +29,18 @@ export default props => {
   }
 
   return (
-    <table className='table mt-3'>
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        { renderRows() }
-      </tbody>
-    </table>
+    <div className='table-responsive'>
+      <table className='table table-dark mt-3'>
+        <thead className='thead-dark'>
+          <tr>
+            <th scope='col'>Descrição</th>
+            <th scope='col'>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          { renderRows() }
+        </tbody>
+      </table>
+    </div>
   )
 }
