@@ -11,7 +11,7 @@ import About from '../about/about'
 
 export default props => (
   <HashRouter>
-    <Grid cols='12 9 10'>
+    <Grid cols='12'>
       <Route path='/todos' component={Todo} />
       <Route path='/about' component={About} />
       <Redirect from='*' to='/todos' />

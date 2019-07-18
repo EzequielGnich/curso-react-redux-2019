@@ -34,7 +34,7 @@ export default props => {
         <thead className='thead-dark'>
           <tr>
             <th scope='col'>Descrição</th>
-            <th scope='col'>Ações</th>
+            <th scope='col' className='tableActions'>Ações</th>
           </tr>
         </thead>
         <tbody>
