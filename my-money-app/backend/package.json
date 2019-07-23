@@ -2,6 +2,7 @@
   "name": "my-money-backend",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/EzequielGnich/curso-react-redux-2019.git",
   "main": "src/loader.js",
   "scripts": {
     "dev": "nodemon",
