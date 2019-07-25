@@ -1,5 +1,8 @@
+const Sentry = require('@sentry/node')
 const BillingCycle = require('./billingCycle')
 const errorHandler = require('../common/errorHandler')
+
+Sentry.init({ dsn: 'https://605340cce1f84c93996961a81f73d97a@sentry.io/1513614' })
 
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 BillingCycle.updateOptions({ new: true, runValidators: true })
