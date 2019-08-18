@@ -6,8 +6,8 @@ import BillingCycle from '../billingCycles/billingCycles'
 
 export default props => (
   <Router  >
-    <Route path='/' exact component={Dashboard} />
-    <Route path='/billingCycles' exact component={BillingCycle} />
+    <Route path='/' exact component={BillingCycle} />
+    <Route path='/billingCycles' exact component={Dashboard} />
     <Redirect from='*' to='/' />
   </Router>
 )
