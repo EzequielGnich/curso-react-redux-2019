@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getList, showUpdate, showDelete } from "./billingCyclesActions";
 
 class BillingCycleList extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.getList();
   }
 

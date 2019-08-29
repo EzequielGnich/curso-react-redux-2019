@@ -14,7 +14,7 @@ import Form from "./billingCycleForm";
 import { init, create, update, remove } from "./billingCyclesActions";
 
 class BillingCycle extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.init();
   }
 
