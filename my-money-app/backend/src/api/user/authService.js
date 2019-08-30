@@ -12,7 +12,7 @@ const emailRegex = /\S+@\S+\.\S+/;
 // A senha deverá ter letras maisculas de A até Z (?=*[A-Z])
 // A senha deverá ter caracteres especiais (?=.*[@#$%])
 // A senha deverá ter entre 6 e 20 caracteres {6.20}
-const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=*[A-Z])(?=.*[@#$%]).{6.20})/;
+const passwordRegex = /([?=.*\d][?=.*[a-z]][?=*[A-Z]][?=.*[@#$%]].{6.20})/;
 
 const sendErrorsFromDB = (res, dbErrors) => {
   const errors = [];
@@ -45,4 +45,55 @@ const validateToken = (req, res, next) => {
   JWT.verify(token, process.env.AUTH_SECRET, function(err, decoded) {
     return res.status(200).send({ valid: !err });
   });
+};
+
+const signup = (req, res, next) => {
+  const { name, email, password, confirmPassword } = req.body || "";
+
+  if (!email.match(emailRegex)) {
+    return res.status(400).send({
+      errors: ["O e-mail informado está inválido"]
+    });
+  }
+
+  if (!password.match(passwordRegex)) {
+    return res.status(400).send({
+      errors: [
+        `Senha precisa ter: Uma letra maiúscula,
+        uma letra minúscula, um número, um caractere especial(@#$%) e
+        tamanho entre 6 e 20 digitos`
+      ]
+    });
+  }
+
+  const salt = bcrypt.genSaltSync();
+  const passwordHash = bcrypt.hashSync(password, salt);
+
+  if (!bcrypt.compareSync(confirmPassword, passwordHash)) {
+    return res.status(400).send({ errors: ["Senhas não conferem"] });
+  }
+
+  User.findOne({ email }, (err, user) => {
+    if (err) {
+      return sendErrorsFromDB(res, err);
+    } else if (user) {
+      res.status(400).send({ errors: ["Usuário já cadastrado"] });
+    } else {
+      const newUser = new User({ name, email, password: passwordHash });
+
+      newUser.save(err => {
+        if (err) {
+          return sendErrorsFromDB(res, err);
+        } else {
+          login(req, res, next);
+        }
+      });
+    }
+  });
+};
+
+module.exports = {
+  login,
+  signup,
+  validateToken
 };
