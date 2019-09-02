@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     next();
   } else {
     const token =
-      req.body.token || req.query.token || req.headers["Authorization"];
+      req.body.token || req.query.token || req.headers["authorization"];
 
     if (!token) {
       return res.status(403).send({ errors: ["Token não providenciado"] });
