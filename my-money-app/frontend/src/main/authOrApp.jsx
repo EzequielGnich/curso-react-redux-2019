@@ -9,7 +9,7 @@ import Auth from "../auth/auth";
 import { validateToken } from "../auth/authActions";
 
 class AuthOrApp extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (this.props.auth.user) {
       this.props.validateToken(this.props.auth.user.token);
     }
