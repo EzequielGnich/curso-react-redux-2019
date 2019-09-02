@@ -10,7 +10,6 @@ export default props => (
   <div className="wrapper">
     <Header />
     <Sidebar />
-    npm run dev
     <div className="content-wrapper">
       <Routes />
     </div>
