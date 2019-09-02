@@ -1,7 +1,7 @@
 import { toastr } from "react-redux-toastr";
 import axios from "axios";
 
-import { API_URL, OAPI_URL } from "../common/const/const";
+import { OAPI_URL } from "../common/const/const";
 
 export function login(values) {
   return submit(values, `${OAPI_URL}/login`);

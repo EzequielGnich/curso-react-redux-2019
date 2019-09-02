@@ -1,4 +1,5 @@
 import React from "react";
+import { HashRouter } from "react-router-dom";
 
 import Header from "../common/template/header";
 import Sidebar from "../common/template/sidebar";
@@ -7,13 +8,13 @@ import Routes from "./routes";
 import Messages from "../common/msgs/msg";
 
 export default props => (
-  <div className="wrapper">
-    <Header />
-    <Sidebar />
-    <div className="content-wrapper">
+  <HashRouter>
+    <div className="wrapper">
+      <Header />
+      <Sidebar />
       <Routes />
+      <Footer />
+      <Messages />
     </div>
-    <Footer />
-    <Messages />
-  </div>
+  </HashRouter>
 );
