@@ -1,4 +1,5 @@
 const JWT = require("jsonwebtoken");
+const { AUTH_SECRET } = require("../api/common/consts");
 
 module.exports = (req, res, next) => {
   // CORS preflight request
@@ -12,7 +13,7 @@ module.exports = (req, res, next) => {
       return res.status(403).send({ errors: ["Token não providenciado"] });
     }
 
-    JWT.verify(token, process.env.AUTH_SECRET, function(err, decoded) {
+    JWT.verify(token, AUTH_SECRET, function(err, decoded) {
       if (err) {
         return res.status(403).send({
           errors: ["Falha na autenticação do token"]
