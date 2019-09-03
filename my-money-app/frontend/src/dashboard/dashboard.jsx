@@ -9,10 +9,11 @@ import ValueBox from '../common/widget/valueBox'
 import Row from '../common/layout/row'
 
 class Dashboard extends Component {
-  UNSAFE_componentWillMount () {
+  componentWillMount () {
     this.props.getSummary()
   }
   render () {
+    console.log(this.props.summary.credit)
     const { credit, debt } = this.props.summary
 
     return (
