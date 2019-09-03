@@ -3,6 +3,8 @@ const JWT = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("./user");
 
+const { AUTH_SECRET } = require("../common/consts");
+
 // Regex para validar um email
 const emailRegex = /\S+@\S+\.\S+/;
 
@@ -12,7 +14,8 @@ const emailRegex = /\S+@\S+\.\S+/;
 // A senha deverá ter letras maisculas de A até Z (?=*[A-Z])
 // A senha deverá ter caracteres especiais (?=.*[@#$%])
 // A senha deverá ter entre 6 e 20 caracteres {6.20}
-const passwordRegex = /([?=.*\d][?=.*[a-z]][?=*[A-Z]][?=.*[@#$%]].{6.20})/;
+// ([?=.*\d][?=.*[a-z]][?=*[A-Z]][?=.*[@#$%]].{6.20})+([?=.*@#$%])
+const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/;
 
 const sendErrorsFromDB = (res, dbErrors) => {
   const errors = [];
@@ -24,11 +27,11 @@ const login = (req, res, next) => {
   const email = req.body.email || "";
   const password = req.body.password || "";
 
-  User.findOne({ email }, (res, user) => {
+  User.findOne({ email }, (err, user) => {
     if (err) {
       return sendErrorsFromDB(res, err);
     } else if (user && bcrypt.compareSync(password, user.password)) {
-      const token = JWT.sign({ ...user }, process.env.AUTH_SECRET, {
+      const token = JWT.sign({ ...user }, AUTH_SECRET, {
         expiresIn: "1 day"
       });
       const { name, email } = user;
@@ -42,14 +45,14 @@ const login = (req, res, next) => {
 const validateToken = (req, res, next) => {
   const token = req.body.token || "";
 
-  JWT.verify(token, process.env.AUTH_SECRET, function(err, decoded) {
+  JWT.verify(token, AUTH_SECRET, function(err, decoded) {
     return res.status(200).send({ valid: !err });
   });
 };
 
 const signup = (req, res, next) => {
   const { name, email, password, confirmPassword } = req.body || "";
-
+  console.log(req.body);
   if (!email.match(emailRegex)) {
     return res.status(400).send({
       errors: ["O e-mail informado está inválido"]
