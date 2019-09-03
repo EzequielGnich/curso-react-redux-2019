@@ -1,7 +1,7 @@
 import { toastr } from "react-redux-toastr";
 import axios from "axios";
 
-import { OAPI_URL } from "../common/const/const";
+import { API_URL, OAPI_URL } from "../common/const/const";
 
 export function login(values) {
   return submit(values, `${OAPI_URL}/login`);
@@ -31,7 +31,7 @@ export function validateToken(token) {
   return dispatch => {
     if (token) {
       axios
-        .post(`${OAPI_URL}/validateToken`, { token })
+        .post(`${API_URL}/validateToken`, { token })
         .then(resp => {
           dispatch({ type: "TOKEN_VALIDATED", payload: resp.data.valid });
         })
