@@ -13,9 +13,9 @@ export default props => (
       </span>
     </a>
     <nav className="navbar navbar-static-top" role="navigation">
-      <a className="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <button className="sidebar-toggle" data-toggle="offcanvas">
         <span className="sr-only">Toggle navigation</span>
-      </a>
+      </button>
       <Navbar />
     </nav>
   </header>

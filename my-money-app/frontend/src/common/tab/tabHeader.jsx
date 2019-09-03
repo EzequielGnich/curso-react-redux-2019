@@ -12,14 +12,14 @@ class TabHeader extends Component {
     return (
       <If test={visible}>
         <li className={selected ? "active" : ""}>
-          <a
+          <button
             data-toggle="tab"
             onClick={() => this.props.selectTab(this.props.target)}
             data-target={this.props.target}
           >
             <i className={`fa fa-${this.props.icon}`} />
             {this.props.label}
-          </a>
+          </button>
         </li>
       </If>
     );

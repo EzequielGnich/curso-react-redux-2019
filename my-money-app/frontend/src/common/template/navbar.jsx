@@ -22,7 +22,7 @@ class Navbar extends Component {
               this.state.open ? "open" : ""
             }`}
           >
-            <a
+            <button
               onClick={() => this.changeOpen()}
               aria-expanded={this.state.open ? "true" : "false"}
               className="dropdown-toggle"
@@ -31,16 +31,16 @@ class Navbar extends Component {
               <img
                 src="http://lorempixel.com/160/160/abstract"
                 className="user-image"
-                alt="User Image"
+                alt="User"
               />
               <span className="hidden-xs">{name}</span>
-            </a>
+            </button>
             <ul className="dropdown-menu">
               <li className="user-header">
                 <img
                   src="http://lorempixel.com/160/160/abstract"
                   className="img-circle"
-                  alt="User Image"
+                  alt="User"
                 />
                 <p>
                   {name}
@@ -49,13 +49,12 @@ class Navbar extends Component {
               </li>
               <li className="user-footer">
                 <div className="pull-right">
-                  <a
-                    href="#"
+                  <button
                     onClick={this.props.logout}
                     className="btn btn-default btn-flat"
                   >
                     Sair
-                  </a>
+                  </button>
                 </div>
               </li>
             </ul>
