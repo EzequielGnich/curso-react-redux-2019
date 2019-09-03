@@ -6,7 +6,6 @@ export default props => (
     <div className="form-group has-feedback">
       <input
         {...props.input}
-        type="text"
         className="form-control"
         placeholder={props.placeholder}
         readOnly={props.readOnly}
