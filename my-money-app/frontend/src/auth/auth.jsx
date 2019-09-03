@@ -26,40 +26,40 @@ class Auth extends Component {
   const { handleSubmit } = this.props
   return (
     <div className="login-box">
-    <div className="login-logo"><b> My</b> Money</div>
-    <div className="login-box-body">
-    <p className="login-box-msg">Bem vindo!</p>
-    <form onSubmit={handleSubmit(v => this.onSubmit(v))}>
-    <Field component={Input} type="input" name="name"
-    placeholder="Nome" icon='user' hide={loginMode} />
-    <Field component={Input} type="email" name="email"
-    placeholder="E-mail" icon='envelope'/>
-    <Field component={Input} type="password" name="password"
-    placeholder="Senha" icon='lock' />
-    <Field component={Input} type="password" name="confirm_password"
-    placeholder="Confirmar Senha" icon='lock' hide={loginMode} />
-    <Row>
-    <Grid cols="4">
-    <button type="submit"
-    className="btn btn-primary btn-block btn-flat">
-    {loginMode ? 'Entrar' : 'Registrar'}
-    </button>
-    </Grid>
-    </Row>
-    </form>
-    <br />
-    <a onClick={() => this.changeMode()}>
-    {loginMode ? 'Novo usuário? Registrar aqui!' :
-    'Já é cadastrado? Entrar aqui!'}
-    </a>
-    </div>
+      <div className="login-logo"><b> My</b> Money</div>
+      <div className="login-box-body">
+        <p className="login-box-msg">Bem vindo!</p>
+        <form onSubmit={handleSubmit(v => this.onSubmit(v))}>
+          <Field component={Input} inputType="input" name="name"
+          placeholder="Nome" icon='user' hide={loginMode} />
+          <Field component={Input} inputType="email" name="email"
+          placeholder="E-mail" icon='envelope'/>
+          <Field component={Input} inputType="password" name="password"
+          placeholder="Senha" icon='lock' />
+          <Field component={Input} inputType="password" name="confirmPassword"
+          placeholder="Confirmar Senha" icon='lock' hide={loginMode} />
+          <Row>
+            <Grid cols="4">
+              <button type="submit"
+              className="btn btn-primary btn-block btn-flat">
+              {loginMode ? 'Entrar' : 'Registrar'}
+              </button>
+            </Grid>
+          </Row>
+        </form>
+      <br/>
+      <button onClick={() => this.changeMode()}>
+      {loginMode ? 'Novo usuário? Registrar aqui!' :
+      'Já é cadastrado? Entrar aqui!'}
+      </button>
+      </div>
     <Messages />
 </div>
 
   )
   }
 }
-Auth = reduxForm({form: 'authForm'})(Auth)
+Auth = reduxForm({ form: 'authForm'})(Auth)
 const mapDispatchToProps = dispatch => bindActionCreators({ login, signup },
 dispatch)
 export default connect(null, mapDispatchToProps)(Auth)
