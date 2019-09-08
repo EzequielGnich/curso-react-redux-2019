@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const rootElement = <h1>React</h1>
+import First from './components/first'
+
+const rootElement = <First />
 ReactDOM.render(rootElement, document.getElementById('root'))
