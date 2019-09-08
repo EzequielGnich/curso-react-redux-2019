@@ -2,8 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Father from './components/father'
+import Child from './components/child'
 
-const rootElement = <Father name="João" lastname="Silveira" />
+const rootElement = 
+  <Father name="João" lastname="Silveira">
+    <Child name="Pedro" lastname="Silveira"/>
+    <Child name="João" lastname="Silveira"/>
+    <Child name="Carla" lastname="Silveira"/>
+  </Father>
 
 ReactDOM.render(rootElement, document.getElementById('root'))
 
