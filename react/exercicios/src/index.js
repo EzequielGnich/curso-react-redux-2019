@@ -1,6 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import Salutation from './components/salutation'
+
+const rootElement = <Salutation type="Bom dia" name="Ezequiel" />
+
+ReactDOM.render(rootElement, document.getElementById('root'))
+
 // Primeiro compoenente simples
 // import First from './components/first'
 
@@ -24,5 +30,3 @@ import ReactDOM from 'react-dom'
  *  <Multi.BoaTarde key="BoaTarde" name="Ezequiel" />
  *]
  */
-
-ReactDOM.render(rootElement, document.getElementById('root'))
