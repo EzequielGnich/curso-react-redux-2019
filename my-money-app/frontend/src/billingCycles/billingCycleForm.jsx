@@ -14,8 +14,8 @@ class BillingCycleForm extends Component {
     return {
       /* O mais(+) na frente do c(+c) da callback da função é para converter */
       /* qualquer valor string em valor numérico                      */
-      sumOfCredits: this.props.credits.map(c => +c.value || 0).reduce(sum),
-      sumOfDebts: this.props.debts.map(d => +d.value || 0).reduce(sum)
+      sumOfCredits: this.props.credits.map(c => +c.value || '').reduce(sum, 0),
+      sumOfDebts: this.props.debts.map(d => +d.value || '').reduce(sum, 0)
       /* this.props.credits ou this.props.debts vem em formato de array,                   */
       /* ao fazer o .map() eu estou transformando o array em um array de números(+d.value) */
       /* em seguida é feito o reduce para agregar todos os valores a partir da soma(sum)   */
