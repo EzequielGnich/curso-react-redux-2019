@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Salutation from './components/salutation'
+import Father from './components/father'
 
-const rootElement = <Salutation type="Bom dia" name="Ezequiel" />
+const rootElement = <Father name="João" lastname="Silveira" />
 
 ReactDOM.render(rootElement, document.getElementById('root'))
+
+// import Salutation from './components/salutation'
+// const rootElement = <Salutation type="Bom dia" name="Ezequiel" />
 
 // Primeiro compoenente simples
 // import First from './components/first'
