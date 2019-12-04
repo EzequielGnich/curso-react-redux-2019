@@ -8,7 +8,10 @@ module.exports = {
   },
   devServer: {
     port: 3333,
-    contentBase: "./public"
+    contentBase: "./public" // Pasta para onde será compilado os arquivos
+  },
+  resolve: {
+    extensions: ["", ".js", ".jsx"] // Utilizado para o webpack poder resolver as extensões
   },
   module: {
     loaders: [
@@ -17,7 +20,8 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          presets: ["es2015", "react"]
+          presets: ["es2015", "react"],
+          plugins: ["transform-object-rest-spread"]
         }
       }
     ]
